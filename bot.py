@@ -112,8 +112,6 @@ def analyze_market(market: str, ticks: list):
 
     # weights
     strength = {
-        "Even": (even_count / len(last_digits) + streak_even * 0.4) / (1 + vol/10),
-        "Odd": (odd_count / len(last_digits) + (1-streak_even) * 0.4) / (1 + vol/10),
         "Over 3": (over3_count / len(last_digits) + streak_over3 * 0.4) / (1 + vol/10),
         "Under 6": (under6_count / len(last_digits) + (1-streak_over3) * 0.4) / (1 + vol/10),
     }
@@ -147,7 +145,7 @@ def fetch_and_analyze():
         now = datetime.now()
         entry_time = now + timedelta(minutes=1)
         expiry_time = now + timedelta(minutes=4)
-        next_signal_time = now + timedelta(minutes=10)
+        next_signal_time = now + timedelta(minutes=1)
 
         market_name = MARKET_NAMES.get(best_market, best_market)
 
