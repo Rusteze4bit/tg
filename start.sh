@@ -1,14 +1,15 @@
 #!/bin/bash
-# Install Python and pip if not already installed
-if ! command -v pip &> /dev/null; then
-    echo "Installing pip..."
-    apt-get update && apt-get install -y python3-pip
-    # Alternatively, for Alpine Linux:
-    # apk add --no-cache python3 py3-pip
-fi
+# Create a virtual environment
+python3 -m venv venv
 
-# Install Python dependencies
-pip3 install -r requirements.txt
+# Activate the virtual environment
+source venv/bin/activate
+
+# Upgrade pip
+pip install --upgrade pip
+
+# Install all required dependencies
+pip install requests websocket-client
 
 # Run the bot
-python3 bot.py
+python bot.py
