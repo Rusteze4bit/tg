@@ -171,7 +171,7 @@ def fetch_and_analyze():
             f"🔥 Execute now!"
         )
         send_telegram_message(main_msg)
-        time.sleep(30)  # 3 mins duration
+        time.sleep(120)  # 3 mins duration
 
         # -------- POST-NOTIFICATION --------
         post_msg = (
@@ -183,7 +183,7 @@ def fetch_and_analyze():
         last_expired_id = send_telegram_message(post_msg, keep=True)
 
         # -------- CLEANUP OLD MESSAGES --------
-        time.sleep(15)
+        time.sleep(30)
         delete_messages()
 
 
@@ -217,7 +217,7 @@ def run_websocket():
 def schedule_signals():
     while True:
         fetch_and_analyze()
-        time.sleep(30)  # every 10 min
+        time.sleep(600)  # every 10 min
 
 
 if __name__ == "__main__":
