@@ -217,7 +217,7 @@ def run_websocket():
 def schedule_signals():
     while True:
         fetch_and_analyze()
-        time.sleep(60)  # every 10 min
+        time.sleep(600)  # every 10 min
 
 
 if __name__ == "__main__":

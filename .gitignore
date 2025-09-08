@@ -1,2 +1,4 @@
-- name: Run start script
-  run: ./start.sh
+__pycache__/
+.env
+.venv/
+*.pyc
